@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 	$.ajax({
 		method: "POST",
-		url: 'https://api.apbugall.org/?token=45e20a5f584becf7a64dffb7174ddf&imdb=' + ($('[data-imdb]').data('imdb') || $('[data-kinopoisk]').data('kinopoisk')),
+		url: 'https://api.apbugall.org/?token=45e20a5f584becf7a64dffb7174ddf&kp=' + $('[data-kinopoisk]').data('kinopoisk'),
 		dataType: "json",
 
 		success: function (data) {

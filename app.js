@@ -47,7 +47,7 @@
            normalized.indexOf('error') !== -1;
   }
 
-  function schedulePlayerRetry(imdbId, attempt, reasonText) {
+  function schedulePlayerRetry(kinopoiskId, attempt, reasonText) {
     if (attempt >= MAX_PLAYER_RETRIES) {
       var reason = reasonText ? '<br><small style="opacity:.8">' + reasonText + '</small>' : '';
       showPlayerError('Плеер временно недоступен. Попробуйте позже или обновите страницу.' + reason);
@@ -66,7 +66,7 @@
     }, RETRY_DELAY_MS);
   }
 
-  function watchPlayerState(imdbId, attempt) {
+  function watchPlayerState(kinopoiskId, attempt) {
     clearPlayerWatchers();
     var container = document.querySelector(CONTAINER);
     if (!container) return;
@@ -95,18 +95,18 @@
     }, 12000);
   }
 
-  function initPlayer(imdbId, options) {
+  function initPlayer(kinopoiskId, options) {
     options = options || {};
     var attempt = options.attempt || 0;
-    if (!imdbId || typeof imdbId !== 'string' && isNaN(imdbId)) {
+    if (!kinopoiskId || isNaN(kinopoiskId)) {
       showPlayerError('Некорректный ID.');
       return;
     }
     var $container = $(CONTAINER);
     clearPlayerWatchers();
     $container.empty();
-    $container.attr('data-imdb', imdbId);
-    $('#currentImdbBadge').text('IMDB: ' + imdbId);
+    $container.attr('data-kinopoisk', kinopoiskId);
+    $('#currentKpBadge').text('ID: ' + kinopoiskId);
     $container.html(
       '<div style="padding:60px 20px;text-align:center;color:#6a78a3;font-size:14px;">' +
       '⏳ Загрузка плеера' + (attempt ? ' (попытка ' + (attempt + 1) + ')' : '') + '...' +
@@ -116,13 +116,13 @@
     waitForKinobox(function () {
       $container.empty();
       try {
-        window.kinobox(CONTAINER, { search: { imdb: imdbId } });
-        if (window.kinoboxTitleName) window.kinoboxTitleName.update(imdbId);
+        window.kinobox(CONTAINER, { search: { kinopoisk: kinopoiskId } });
+        if (window.kinoboxTitleName) window.kinoboxTitleName.update(kinopoiskId);
         setTimeout(applyGeoFilter, 1200);
-        watchPlayerState(imdbId, attempt);
+        watchPlayerState(kinopoiskId, attempt);
       } catch (e) {
         console.error('[KinoBox]', e);
-        schedulePlayerRetry(imdbId, attempt, 'Ошибка инициализации');
+        schedulePlayerRetry(kinopoiskId, attempt, 'Ошибка инициализации');
       }
     });
   }
@@ -151,11 +151,11 @@
 
   function parseRoute(path) {
     path = path || window.location.pathname;
-    var m = path.match(/^\/(films|serials)\/(.+)/i);
-    if (m) return { type: m[1].toLowerCase(), id: m[2] };
+    var m = path.match(/^\/(films|serials)\/(\d+)/i);
+    if (m) return { type: m[1].toLowerCase(), id: parseInt(m[2], 10) };
     var qp = new URLSearchParams(window.location.search);
-    var imdbParam = qp.get('imdb') || qp.get('id');
-    if (imdbParam) return { type: 'films', id: imdbParam };
+    var kpParam = qp.get('kp') || qp.get('id');
+    if (kpParam && /^\d+$/.test(kpParam)) return { type: 'films', id: parseInt(kpParam, 10) };
     return null;
   }
 
@@ -175,9 +175,9 @@
   }
 
   function goToPlayer(id, type) {
-    id = id || DEFAULT_ID;
+    id = parseInt(id, 10) || DEFAULT_ID;
     type = type || 'films';
-    currentImdbId = id;
+    currentKpId = id;
     currentType = type;
     var newUrl = '/' + type + '/' + id;
     if (window.location.pathname !== newUrl) {
@@ -223,7 +223,7 @@
 
     if (route) {
       // Пришли на /films/ID или /serials/ID — сразу грузим плеер
-      currentImdbId = route.id;
+      currentKpId = route.id;
       currentType = route.type;
       showPage('player');
       initPlayer(route.id);
