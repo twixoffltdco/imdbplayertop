@@ -1,4 +1,4 @@
-# 🎬 kinoplayer.top
+# 🎬 imdbplayertop.tatnet.app
 
 > Плеер нового поколения для фильмов и сериалов. Быстро, бесплатно, без регистрации.
 
@@ -10,7 +10,7 @@
 ## 🚀 Деплой (один клик)
 
 ### Vercel
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/twixoffltdco/kinoboxtv)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/twixoffltdco/imdbplayertop)
 
 > `vercel.json` уже настроен. После деплоя всё работает.
 
