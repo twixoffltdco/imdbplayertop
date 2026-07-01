@@ -1,0 +1,363 @@
+/*!
+ * kinobox.css — Kinoplayer.top
+ * Подключи этот файл если используешь kinobox.js на своём сайте
+ * Зеленая гамма - Жидкое Стекло (Glassmorphism) - Production Ready
+ */
+
+/* Стили инжектируются автоматически через kinobox.js.
+   Этот файл нужен только если ты хочешь переопределить стили. */
+
+
+:root {
+  --kb-glass-bg: rgba(5, 20, 15, 0.90);
+  --kb-glass-border: rgba(16, 185, 129, 0.30);
+  --kb-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --kb-glass-blur: blur(20px);
+  --kb-accent: #10b981;
+  --kb-accent2: #34d399;
+  --kb-accent-glow: rgba(16, 185, 129, 0.7);
+  --kb-text: #ffffff;
+  --kb-text-dim: rgba(255, 255, 255, 0.88);
+  --kb-bg-deep: rgba(5, 20, 15, 0.95);
+}
+
+.kb__wrap {
+  width: 100%;
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  background: var(--kb-glass-bg);
+  backdrop-filter: var(--kb-glass-blur);
+  -webkit-backdrop-filter: var(--kb-glass-blur);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--kb-glass-border);
+  box-shadow: var(--kb-glass-shadow), inset 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+.kb__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 12px;
+  background: rgba(10, 35, 26, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--kb-glass-border);
+}
+
+.kb__btn {
+  cursor: pointer;
+  padding: 6px 15px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--kb-text-dim);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--kb-glass-border);
+  transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.kb__btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left .4s;
+}
+
+.kb__btn:hover::before {
+  left: 100%;
+}
+
+.kb__btn:hover { 
+  background: rgba(16, 185, 129, 0.28); 
+  color: #fff; 
+  box-shadow: 0 4px 15px var(--kb-accent-glow);
+}
+
+.kb__btn.kb__active {
+  background: linear-gradient(135deg, var(--kb-accent), var(--kb-accent2));
+  color: #fff;
+  border-color: var(--kb-accent);
+  box-shadow: 0 1px 8px var(--kb-accent-glow), inset 0 0 15px rgba(255,255,255,0.2);
+}
+
+.kb__frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.kb__frame iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+  background: #000;
+}
+
+.kb__loading {
+  padding: 60px 20px;
+  text-align: center;
+  color: #6a8a7a;
+  font-size: 13px;
+}
+
+.kb__error {
+  padding: 40px 20px;
+  text-align: center;
+  color: #fca5a5;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Уникальные стили для kinoplayer — загрузка, ошибки, меню */
+.kinobox_loader.svelte-l0obux {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kinobox_loader.svelte-l0obux::before {
+  content: '';
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(99, 102, 241, 0.2);
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: kp-spin 1s linear infinite;
+}
+
+@keyframes kp-spin {
+  to { transform: rotate(360deg); }
+}
+
+.kinobox_message.svelte-l0obux {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  height: 100%;
+  padding: 24px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  font: 24px 'Segoe UI', system-ui, sans-serif;
+  color: #e0e0ff;
+  text-align: center;
+}
+
+.kinobox_button_refresh.svelte-l0obux {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 12px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  transition: all 0.2s ease;
+}
+
+.kinobox_button_refresh.svelte-l0obux:hover {
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+  transform: translateY(-2px);
+}
+
+.kinobox_button_refresh.svelte-l0obux:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+}
+
+/* ========================================
+   Kinoplayer.top — Уникальный дизайн
+   Фиолетово-синяя гамма с неоновым свечением
+   Отличается от kinobox.tatnet.app
+======================================== */
+
+:root {
+  --kp-primary: #6366f1;
+  --kp-secondary: #8b5cf6;
+  --kp-accent: #a78bfa;
+  --kp-bg-dark: #0f172a;
+  --kp-bg-card: rgba(30, 41, 59, 0.95);
+  --kp-border: rgba(99, 102, 241, 0.3);
+  --kp-glow: rgba(99, 102, 241, 0.5);
+  --kp-text: #f1f5f9;
+  --kp-text-dim: rgba(241, 245, 251, 0.8);
+}
+
+/* Кнопка меню источников */
+.kinobox_menu_button.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-primary), var(--kp-secondary)) !important;
+  box-shadow: 0 4px 20px var(--kp-glow), inset 0 0 20px rgba(255,255,255,0.1) !important;
+  outline: solid 3px rgba(99, 102, 241, 0.2) !important;
+}
+
+.kinobox_menu_button.svelte-l0obux:hover {
+  background: linear-gradient(135deg, var(--kp-secondary), var(--kp-accent)) !important;
+  box-shadow: 0 6px 25px var(--kp-glow), inset 0 0 25px rgba(255,255,255,0.15) !important;
+}
+
+/* Выпадающее меню (button theme) */
+.kbt_button.svelte-l0obux ul.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-bg-card), rgba(15, 23, 42, 0.98)) !important;
+  border: 1px solid var(--kp-border) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px var(--kp-glow) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.kbt_button.svelte-l0obux li.svelte-l0obux {
+  background: rgba(51, 65, 85, 0.8) !important;
+  color: var(--kp-text) !important;
+  border: 1px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.kbt_button.svelte-l0obux li.svelte-l0obux:hover {
+  background: rgba(99, 102, 241, 0.3) !important;
+  border-color: var(--kp-primary) !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 4px 15px var(--kp-glow) !important;
+}
+
+.kbt_button.svelte-l0obux .kinobox_menu_active.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-primary), var(--kp-secondary)) !important;
+  box-shadow: 0 4px 20px var(--kp-glow), inset 0 0 20px rgba(255,255,255,0.2) !important;
+}
+
+/* Список (list theme) */
+.kbt_list.svelte-l0obux ul.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-bg-card), rgba(15, 23, 42, 0.98)) !important;
+  border: 1px solid var(--kp-border) !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 30px var(--kp-glow) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+.kbt_list.svelte-l0obux li.svelte-l0obux {
+  background: rgba(51, 65, 85, 0.6) !important;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2) !important;
+  color: var(--kp-text) !important;
+  transition: all 0.2s ease !important;
+}
+
+.kbt_list.svelte-l0obux li.svelte-l0obux:hover {
+  background: rgba(99, 102, 241, 0.25) !important;
+  padding-left: 14px !important;
+}
+
+.kbt_list.svelte-l0obux .kinobox_menu_active.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-primary), var(--kp-secondary)) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px var(--kp-glow) !important;
+}
+
+/* Селект (select theme) */
+.kbt_select.svelte-l0obux.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-primary), var(--kp-secondary)) !important;
+  border: 1px solid var(--kp-border) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px var(--kp-glow) !important;
+}
+
+.kbt_select.svelte-l0obux option {
+  background: var(--kp-bg-card) !important;
+  color: var(--kp-text) !important;
+}
+
+/* Навигация (grid theme) */
+.kinobox_nav.kbt_grid.svelte-l0obux {
+  background: rgba(15, 23, 42, 0.5) !important;
+  backdrop-filter: blur(10px) !important;
+  padding: 8px !important;
+  border-radius: 12px !important;
+}
+
+.kbt_grid.svelte-l0obux button.svelte-l0obux {
+  background: rgba(51, 65, 85, 0.7) !important;
+  color: var(--kp-text) !important;
+  border: 1px solid var(--kp-border) !important;
+  transition: all 0.2s ease !important;
+}
+
+.kbt_grid.svelte-l0obux button.svelte-l0obux:hover {
+  background: rgba(99, 102, 241, 0.3) !important;
+  border-color: var(--kp-primary) !important;
+  box-shadow: 0 4px 15px var(--kp-glow) !important;
+  transform: translateY(-2px) !important;
+}
+
+.kbt_grid.svelte-l0obux .kinobox_menu_active.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-primary), var(--kp-secondary)) !important;
+  border-color: var(--kp-accent) !important;
+  box-shadow: 0 4px 20px var(--kp-glow), inset 0 0 15px rgba(255,255,255,0.2) !important;
+}
+
+/* Контейнер плеера */
+.kinobox_container.svelte-l0obux {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9)) !important;
+  border: 1px solid var(--kp-border) !important;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.7), inset 0 0 60px rgba(99, 102, 241, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Загрузчик */
+.kinobox_loader.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-bg-dark), rgba(30, 41, 59, 0.95)) !important;
+}
+
+.kinobox_loader.svelte-l0obux::before {
+  border-color: rgba(99, 102, 241, 0.2) !important;
+  border-top-color: var(--kp-primary) !important;
+  box-shadow: 0 0 20px var(--kp-glow) !important;
+}
+
+/* Сообщение об ошибке */
+.kinobox_message.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-bg-dark), rgba(30, 41, 59, 0.95)) !important;
+  color: var(--kp-text) !important;
+  border: 1px solid var(--kp-border) !important;
+  box-shadow: inset 0 0 60px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Кнопка обновления */
+.kinobox_button_refresh.svelte-l0obux {
+  background: linear-gradient(135deg, var(--kp-primary), var(--kp-secondary)) !important;
+  box-shadow: 0 4px 20px var(--kp-glow) !important;
+}
+
+.kinobox_button_refresh.svelte-l0obux:hover {
+  background: linear-gradient(135deg, var(--kp-secondary), var(--kp-accent)) !important;
+  box-shadow: 0 6px 25px var(--kp-glow) !important;
+}
+
+/* Анимации */
+@keyframes kp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes kp-glow {
+  0%, 100% { box-shadow: 0 4px 20px var(--kp-glow); }
+  50% { box-shadow: 0 6px 30px var(--kp-glow), 0 0 40px rgba(139, 92, 246, 0.4); }
+}
