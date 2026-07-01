@@ -19,7 +19,7 @@
 
 <script>
   kinobox('#myPlayer', {
-    search: { imdb: "tt0111161" }
+    search: { kinopoisk: 301234 }
   });
 </script>
 ```

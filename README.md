@@ -1,4 +1,4 @@
-# 🎬 imdbplayertop
+# 🎬 imdbplayertop.tatnet.app
 
 > Плеер нового поколения для фильмов и сериалов. Быстро, бесплатно, без регистрации.
 
@@ -64,4 +64,4 @@
 
 ## 📜 Лицензия
 
-MIT License © 2025 IMDBPlayerTop
+MIT License © 2025 KinoBox.tv

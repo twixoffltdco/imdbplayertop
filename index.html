@@ -20,18 +20,18 @@
 :root{
   --bg:#0a1a0f;--bg-card:rgba(10,30,20,0.6);--bg-deep:rgba(5,20,15,0.8);
   --border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.08);
-  --accent:#7c3aed;--accent2:#a855f7;
+  --accent:#6366f1;--accent2:#8b5cf6;
   --text:#ffffff;--dim:rgba(255,255,255,0.85);--muted:rgba(255,255,255,0.5);
   --r-lg:28px;--r-md:20px;--r-sm:12px;--r-pill:60px;
   --glass-bg:rgba(255,255,255,0.08);
   --glass-border:rgba(255,255,255,0.15);
   --glass-shadow:0 8px 32px rgba(0,0,0,0.4);
   --glass-blur:blur(18px);
-  --glow:rgba(124,58,237,0.5);
+  --glow:rgba(99,102,241,0.5);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Montserrat',sans-serif;background:linear-gradient(135deg,#0a0a1a,#1a0f2a);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
-body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 20% 80%,rgba(124,58,237,0.15),transparent 50%),radial-gradient(circle at 80% 20%,rgba(168,85,247,0.1),transparent 50%);pointer-events:none;z-index:-1;animation:gfm 15s ease-in-out infinite alternate}
+body{font-family:'Montserrat',sans-serif;background:linear-gradient(135deg,#0f172a,#1e2937);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 20% 80%,rgba(99,102,241,0.15),transparent 50%),radial-gradient(circle at 80% 20%,rgba(139,92,246,0.1),transparent 50%);pointer-events:none;z-index:-1;animation:gfm 15s ease-in-out infinite alternate}
 @keyframes gfm{from{transform:translate(0,0)}to{transform:translate(-2%,2%)}}
 
 /* ===========================
@@ -58,7 +58,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 }
 .nav a::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left .4s}
 .nav a:hover::before{left:100%}
-.nav a:hover{background:rgba(124,58,237,0.25);color:#fff;box-shadow:0 4px 15px rgba(124,58,237,0.3)}
+.nav a:hover{background:rgba(16,185,129,0.25);color:#fff;box-shadow:0 4px 15px rgba(16,185,129,0.3)}
 .nav a.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 20px var(--glow),inset 0 0 15px rgba(255,255,255,0.2)}
 
 /* ===========================
@@ -81,7 +81,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
    PLAYER - Glass Style
 =========================== */
 .ph{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
-.ph h2{font-size:1.25rem;font-weight:600;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 15px rgba(124,58,237,0.3)}
+.ph h2{font-size:1.25rem;font-weight:600;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 15px rgba(16,185,129,0.3)}
 .badge{background:rgba(26,50,40,0.8);backdrop-filter:blur(10px);padding:5px 14px;border-radius:var(--r-pill);font-size:.78rem;font-family:monospace;color:#86efac;border:1px solid var(--glass-border);box-shadow:0 4px 15px rgba(0,0,0,0.3)}
 #playerBox{
   width:100%;border-radius:var(--r-md);overflow:hidden;
@@ -89,14 +89,14 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
   box-shadow:inset 0 0 50px rgba(0,0,0,0.5),0 10px 40px rgba(0,0,0,0.4);border:1px solid var(--glass-border);
 }
 .hint{margin-top:14px;background:var(--bg-deep);border-radius:var(--r-sm);padding:11px 16px;font-size:12px;text-align:center;color:var(--muted);border:1px solid var(--border2);backdrop-filter:blur(10px)}
-.hint code{background:rgba(124,58,237,0.2);padding:2px 8px;border-radius:6px;color:#86efac;font-family:monospace;border:1px solid rgba(124,58,237,0.3)}
+.hint code{background:rgba(16,185,129,0.2);padding:2px 8px;border-radius:6px;color:#86efac;font-family:monospace;border:1px solid rgba(16,185,129,0.3)}
 
 /* ===========================
    LANDING - Glass Hero
 =========================== */
 .hero{text-align:center;padding:36px 20px 44px;background:rgba(255,255,255,0.03);border-radius:var(--r-lg);border:1px solid var(--glass-border);backdrop-filter:blur(10px)}
-.hero-icon{font-size:3rem;margin-bottom:14px;filter:drop-shadow(0 4px 15px rgba(124,58,237,0.4))}
-.hero h1{font-size:2.6rem;font-weight:700;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px;letter-spacing:-1px;text-shadow:0 4px 20px rgba(124,58,237,0.3)}
+.hero-icon{font-size:3rem;margin-bottom:14px;filter:drop-shadow(0 4px 15px rgba(16,185,129,0.4))}
+.hero h1{font-size:2.6rem;font-weight:700;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px;letter-spacing:-1px;text-shadow:0 4px 20px rgba(16,185,129,0.3)}
 .hero p{font-size:1rem;color:var(--dim);margin-bottom:28px}
 .btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;padding:13px 34px;border-radius:var(--r-pill);font-weight:600;font-size:.95rem;box-shadow:0 4px 20px var(--glow),inset 0 0 20px rgba(255,255,255,0.15);transition:.25s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;border:1px solid var(--glass-border)}
 .btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left .5s}
@@ -105,8 +105,8 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:36px}
 .card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--r-md);padding:20px;transition:.25s cubic-bezier(0.4,0,0.2,1);backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
-.card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 8px 30px var(--glow),inset 0 0 20px rgba(124,58,237,0.1)}
-.card-icon{font-size:1.7rem;margin-bottom:10px;filter:drop-shadow(0 2px 10px rgba(124,58,237,0.3))}
+.card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 8px 30px var(--glow),inset 0 0 20px rgba(16,185,129,0.1)}
+.card-icon{font-size:1.7rem;margin-bottom:10px;filter:drop-shadow(0 2px 10px rgba(16,185,129,0.3))}
 .card h3{font-size:.93rem;font-weight:600;margin-bottom:7px;color:#fff}
 .card p{font-size:.82rem;color:var(--dim)}
 
@@ -116,7 +116,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 .step{display:flex;align-items:flex-start;gap:14px}
 .sn{min-width:34px;height:34px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;box-shadow:0 4px 15px var(--glow)}
 .step p{font-size:.87rem;color:var(--dim);padding-top:6px}
-.step code{background:rgba(124,58,237,0.2);padding:2px 8px;border-radius:6px;color:#86efac;font-family:monospace;border:1px solid rgba(124,58,237,0.3)}
+.step code{background:rgba(16,185,129,0.2);padding:2px 8px;border-radius:6px;color:#86efac;font-family:monospace;border:1px solid rgba(16,185,129,0.3)}
 
 /* ===========================
    EMBED PAGE - Glass Style
@@ -126,7 +126,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 .embed-hero p{color:var(--dim);font-size:.9rem}
 .embed-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:22px}
 .em{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--r-md);padding:20px;backdrop-filter:blur(10px);transition:.2s}
-.em:hover{border-color:var(--accent);box-shadow:0 6px 25px rgba(124,58,237,0.2)}
+.em:hover{border-color:var(--accent);box-shadow:0 6px 25px rgba(16,185,129,0.2)}
 .em-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:12px;letter-spacing:.5px;box-shadow:0 2px 10px var(--glow)}
 .em h3{font-size:1rem;font-weight:600;margin-bottom:8px;color:#fff}
 .em p{font-size:.83rem;color:var(--dim);margin-bottom:12px}
@@ -152,7 +152,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
   padding:9px 14px;border-radius:10px;font-family:'Montserrat',sans-serif;
   font-size:.88rem;width:180px;outline:none;backdrop-filter:blur(8px);
 }
-#demoKpInput:focus{border-color:var(--accent);box-shadow:0 0 15px rgba(124,58,237,0.3)}
+#demoKpInput:focus{border-color:var(--accent);box-shadow:0 0 15px rgba(16,185,129,0.3)}
 #demoGenBtn{
   background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;padding:9px 20px;
   border-radius:10px;cursor:pointer;font-weight:600;font-size:.85rem;
@@ -172,10 +172,10 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 .page li{margin-bottom:5px}
 .page a{color:var(--accent2);text-decoration:none;transition:.2s}
 .page a:hover{color:#fff;text-shadow:0 0 10px var(--glow)}
-code{background:rgba(124,58,237,0.2);padding:2px 8px;border-radius:6px;font-family:monospace;font-size:.84em;color:#86efac;border:1px solid rgba(124,58,237,0.3)}
+code{background:rgba(16,185,129,0.2);padding:2px 8px;border-radius:6px;font-family:monospace;font-size:.84em;color:#86efac;border:1px solid rgba(16,185,129,0.3)}
 .codeblock{background:rgba(5,16,10,0.8);border:1px solid var(--border);border-radius:10px;padding:16px 18px;font-family:'Courier New',monospace;font-size:.8rem;color:#86efac;line-height:1.85;margin:12px 0 20px;overflow-x:auto;white-space:pre;backdrop-filter:blur(8px)}
 .fcard{background:var(--glass-bg);border-radius:var(--r-md);padding:16px 20px;margin-bottom:12px;border:1px solid var(--glass-border);transition:.2s;backdrop-filter:blur(10px)}
-.fcard:hover{border-color:var(--accent);box-shadow:0 6px 20px rgba(124,58,237,0.2)}
+.fcard:hover{border-color:var(--accent);box-shadow:0 6px 20px rgba(16,185,129,0.2)}
 .fq{font-weight:600;color:var(--accent2);margin-bottom:7px;font-size:.92rem}
 .fa{color:#cddcff;font-size:.86rem;line-height:1.65}
 table{width:100%;border-collapse:collapse;font-size:.85rem;margin:12px 0 20px}
@@ -225,7 +225,7 @@ hr{border:none;border-top:1px solid var(--border2);margin:22px 0}
 .cookie-banner.show{display:block}
 @keyframes slideUp{from{opacity:0;transform:translate(-50%,30px)}to{opacity:1;transform:translate(-50%,0)}}
 .cookie-content{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
-.cookie-icon{font-size:2rem;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(124,58,237,0.4))}
+.cookie-icon{font-size:2rem;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(16,185,129,0.4))}
 .cookie-text h4{font-size:.95rem;font-weight:600;color:#fff;margin-bottom:6px;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .cookie-text p{font-size:.78rem;color:var(--dim);line-height:1.5;margin:0}
 .cookie-text a{color:var(--accent2);text-decoration:none;transition:.2s}
@@ -315,10 +315,10 @@ hr{border:none;border-top:1px solid var(--border2);margin:22px 0}
 <!-- ===== FAQ ===== -->
 <div id="p-faq" class="page">
   <h1>Часто задаваемые вопросы</h1>
-  <div class="fcard"><div class="fq">❓ Как найти ID фильма на IMDB?</div><div class="fa">Откройте страницу фильма на imdb.com. В адресной строке будет ссылка вида <code>imdb.com/film/12345/</code> — число <strong>12345</strong> и есть ID.</div></div>
-  <div class="fcard"><div class="fq">❓ Как открыть фильм через IMDBPlayerTop?</div><div class="fa">Введите в адресную строку: <code>imdbplayertop/#/films/ID</code> для фильма или <code>imdbplayertop/#/serials/ID</code> для сериала.</div></div>
+  <div class="fcard"><div class="fq">❓ Как найти ID фильма на Кинопоиске?</div><div class="fa">Откройте страницу фильма на imdb.com. В адресной строке будет ссылка вида <code>imdb.com/film/12345/</code> — число <strong>12345</strong> и есть ID.</div></div>
+  <div class="fcard"><div class="fq">❓ Как открыть фильм через Kinoplayer?</div><div class="fa">Введите в адресную строку: <code>kinoplayer.top/#/films/ID</code> для фильма или <code>kinoplayer.top/#/serials/ID</code> для сериала.</div></div>
   <div class="fcard"><div class="fq">❓ Почему плеер не загружается?</div><div class="fa">Убедитесь что ID корректное число. Попробуйте: 1) сменить источник в меню плеера, 2) отключить блокировщик рекламы, 3) очистить кэш, 4) другой браузер.</div></div>
-  <div class="fcard"><div class="fq">❓ Нужна ли регистрация?</div><div class="fa">Нет. IMDBPlayerTop полностью бесплатен, регистрация не требуется.</div></div>
+  <div class="fcard"><div class="fq">❓ Нужна ли регистрация?</div><div class="fa">Нет. Kinoplayer полностью бесплатен, регистрация не требуется.</div></div>
   <div class="fcard"><div class="fq">❓ Работает ли на телефоне?</div><div class="fa">Да, интерфейс полностью адаптивен. Работает на iOS Safari и Android Chrome.</div></div>
   <div class="fcard"><div class="fq">❓ Как смотреть сериал по сериям?</div><div class="fa">При открытии сериала в плеере появляется меню выбора сезона и серии.</div></div>
   <div class="fcard"><div class="fq">❓ Как встроить плеер на свой сайт?</div><div class="fa">Смотрите раздел <a href="#/embed">🔌 Embed</a> — там всё подробно описано с готовыми примерами кода.</div></div>
@@ -330,8 +330,8 @@ hr{border:none;border-top:1px solid var(--border2);margin:22px 0}
   <h1>Встроить плеер на сайт</h1>
 
   <div class="embed-hero">
-    <h2>🔌 IMDBPlayerTopTop Embed</h2>
-    <p>Добавьте плеер IMDBPlayerTop на любой сайт за 30 секунд. Три варианта интеграции — выбери удобный.</p>
+    <h2>🔌 KinoplayerTop Embed</h2>
+    <p>Добавьте плеер Kinoplayer на любой сайт за 30 секунд. Три варианта интеграции — выбери удобный.</p>
   </div>
 
   <!-- ГЕНЕРАТОР КОДА -->
@@ -354,10 +354,10 @@ hr{border:none;border-top:1px solid var(--border2);margin:22px 0}
       <div class="copy-wrap">
         <pre class="code" id="code-script">&lt;div id="player"&gt;&lt;/div&gt;
 
-&lt;script src="https://imdbplayertop/kinoplayer.js"&gt;&lt;/script&gt;
+&lt;script src="https://kinoplayer.top/kinoplayer.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   kinobox('#player', {
-    search: { imdb: "tt0111161" }
+    search: { kinopoisk: 301 }
   });
 &lt;/script&gt;</pre>
         <button class="copy-btn" onclick="copyCode('code-script',this)">Копировать</button>
@@ -371,7 +371,7 @@ hr{border:none;border-top:1px solid var(--border2);margin:22px 0}
       <p>Проще некуда — работает даже в конструкторах сайтов.</p>
       <div class="copy-wrap">
         <pre class="code" id="code-iframe">&lt;iframe
-  src="https://imdbplayertop/embed/#301"
+  src="https://kinoplayer.top/embed/#301"
   width="100%"
   height="500"
   frameborder="0"
@@ -415,12 +415,12 @@ hr{border:none;border-top:1px solid var(--border2);margin:22px 0}
 
   function loadFrom(i){
     if(i >= proxies.length){
-      console.error("[IMDBPlayerTop] Не удалось загрузить ни с одного прокси.");
+      console.error("[Kinoplayer] Не удалось загрузить ни с одного прокси.");
       return;
     }
     var src = normalize(proxies[i]);
     loadScript(src, function(){
-      console.info("[IMDBPlayerTop] загружен:", src);
+      console.info("[Kinoplayer] загружен:", src);
     }, function(){
       loadFrom(i + 1);
     });
@@ -486,7 +486,7 @@ hr{border:none;border-top:1px solid var(--border2);margin:22px 0}
           playerInited = true;
           if(window.kinoboxTitleName) window.kinoboxTitleName.update(kpId);
         }catch(e){
-          console.error('[IMDBPlayerTop]',e);
+          console.error('[Kinoplayer]',e);
           $box.html('<div style="padding:50px 20px;text-align:center;color:#fca5a5;font-size:13px">⚠️ Ошибка плеера. Обновите страницу.</div>');
         }
         return;
@@ -657,7 +657,7 @@ function copyCode(id, btn){
   setCookie('kp_theme', prefs.theme, 365);
   setCookie('kp_lang', prefs.lang, 365);
   
-  console.log('[IMDBPlayerTop] User initialized:', userId);
+  console.log('[Kinoplayer] User initialized:', userId);
   
   // Cookie Banner Logic
   function showCookieBanner(){

@@ -1,5 +1,5 @@
 /* ===========================
-   IMDBPlayerTop — App Logic v2.1
+   KinoBox.tv — App Logic v2.1
    Фикс: правильный роутинг при обновлении страницы
    =========================== */
 
@@ -9,7 +9,7 @@
   var currentImdbId  = null;
   var currentType  = 'films';
   var CONTAINER    = '#kinoboxContainer';
-  var DEFAULT_ID   = 111161; // tt0111161 Shawshank
+  var DEFAULT_ID   = 301;
   var MAX_PLAYER_RETRIES = 3;
   var RETRY_DELAY_MS = 1800;
   var playerWatchTimer = null;
@@ -62,7 +62,7 @@
     );
 
     setTimeout(function () {
-      initPlayer(imdbId, { attempt: nextAttempt, isRetry: true });
+      initPlayer(kinopoiskId, { attempt: nextAttempt, isRetry: true });
     }, RETRY_DELAY_MS);
   }
 
@@ -82,7 +82,7 @@
       var messageText = messageNode ? messageNode.textContent : container.textContent;
       if (isRecoverablePlayerMessage(messageText)) {
         clearPlayerWatchers();
-        schedulePlayerRetry(imdbId, attempt, messageText);
+        schedulePlayerRetry(kinopoiskId, attempt, messageText);
       }
     };
 
@@ -98,7 +98,7 @@
   function initPlayer(imdbId, options) {
     options = options || {};
     var attempt = options.attempt || 0;
-    if (!imdbId) {
+    if (!imdbId || typeof imdbId !== 'string' && isNaN(imdbId)) {
       showPlayerError('Некорректный ID.');
       return;
     }
@@ -106,7 +106,7 @@
     clearPlayerWatchers();
     $container.empty();
     $container.attr('data-imdb', imdbId);
-    $('#currentKpBadge').text('ID: ' + imdbId);
+    $('#currentImdbBadge').text('IMDB: ' + imdbId);
     $container.html(
       '<div style="padding:60px 20px;text-align:center;color:#6a78a3;font-size:14px;">' +
       '⏳ Загрузка плеера' + (attempt ? ' (попытка ' + (attempt + 1) + ')' : '') + '...' +
@@ -151,11 +151,11 @@
 
   function parseRoute(path) {
     path = path || window.location.pathname;
-    var m = path.match(/^\/(films|serials)\/(\d+)/i);
-    if (m) return { type: m[1].toLowerCase(), id: parseInt(m[2], 10) };
+    var m = path.match(/^\/(films|serials)\/(.+)/i);
+    if (m) return { type: m[1].toLowerCase(), id: m[2] };
     var qp = new URLSearchParams(window.location.search);
     var imdbParam = qp.get('imdb') || qp.get('id');
-    if (imdbParam && (imdbParam.match(/^tt\d+$/i) || /^\d+$/.test(imdbParam))) return { type: 'films', id: imdbParam };
+    if (imdbParam) return { type: 'films', id: imdbParam };
     return null;
   }
 
@@ -175,7 +175,7 @@
   }
 
   function goToPlayer(id, type) {
-    id = parseInt(id, 10) || DEFAULT_ID;
+    id = id || DEFAULT_ID;
     type = type || 'films';
     currentImdbId = id;
     currentType = type;
